@@ -20,12 +20,11 @@
   ├── restic_backup.sh.enc        # Encrypted backup logic
   ├── restore.sh                  # Encrypted launcher stub
   ├── restore.sh.enc              # Encrypted restore logic
-```
 
 	- src/ contains the editable restic_backup_src.sh script.
 	- Running restic_backup_src.sh generates all production scripts in the parent folder.
 	- The entire folder is portable; cron jobs and scripts work using relative paths.
-
+```
 - ## Initial Setup
 
 	- #### Install Required Apps:
