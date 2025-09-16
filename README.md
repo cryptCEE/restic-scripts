@@ -12,7 +12,7 @@
 		- Secure encryption of scripts using a passphrase-free SSH RSA key
 
 - ## Folder Structure
-```
+	```
 	restic-scripts/                 # Main folder (portable)
 	  ├── src/                        # Editable source
 	  │   └── restic_backup_src.sh    # Single editable source
@@ -24,7 +24,7 @@
 	- src/ contains the editable restic_backup_src.sh script.
 	- Running restic_backup_src.sh generates all production scripts in the parent folder.
 	- The entire folder is portable; cron jobs and scripts work using relative paths.
-```
+	```
 - ## Initial Setup
 
 	- #### Install Required Apps:
