@@ -112,10 +112,8 @@
 - ## Quick Commands Reference
 	- ### Backup
 		- Run the source script (generates encrypted scripts and runs backup):
-			```
-			cd ~/restic-scripts/src
-			./restic_backup_src.sh
-			```
+			`cd ~/restic-scripts/src`
+			`./restic_backup_src.sh`
 		- Run the encrypted production backup script:
 			`~/restic-scripts/restic_backup.sh`
 	- ### Restore
