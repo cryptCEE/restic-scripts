@@ -12,7 +12,6 @@
 		- Secure encryption of scripts using a passphrase-free SSH RSA key
 
 - ## Folder Structure
-
 ```  restic-scripts/                 # Main folder (portable)
   ├── src/                        # Editable source
   │   └── restic_backup_src.sh    # Single editable source
