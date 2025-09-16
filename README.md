@@ -15,8 +15,8 @@
 	```
 	restic-scripts/                 # Main folder (portable)
   	├── src/                        # Editable source
-  	│   └── restic_backup_src.sh    # Single editable source
-  	├── restic_backup.sh            # Encrypted launcher stub
+  	│   └── **restic_backup_src.sh**    # Single editable source
+  	├── *restic_backup.sh*            # Encrypted launcher stub
   	├── restic_backup.sh.enc        # Encrypted backup logic
   	├── restore.sh                  # Encrypted launcher stub
   	├── restore.sh.enc              # Encrypted restore logic
