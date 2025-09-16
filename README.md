@@ -60,10 +60,10 @@
 
 	- ## Running the Backup
 		- Run the editable source to perform a backup and generate encrypted scripts:
-			- ```
-			  cd ~/restic-scripts/src
-			  ./restic_backup_src.sh
-			  ```
+			```
+			cd ~/restic-scripts/src
+			./restic_backup_src.sh
+			```
 			- What happens:
 				- Restic repository initialized if not present
 				- Argon2 password file created (or reused)
@@ -76,9 +76,9 @@
 
 	- ## Running Encrypted Production Scripts
 		- Backup:
-			- `~/restic-scripts/restic_backup.sh`
+			`~/restic-scripts/restic_backup.sh`
 		- Restore:
-			- `~/restic-scripts/restore.sh`
+			`~/restic-scripts/restore.sh`
 			- Restore Behavior:
 				- Displays available snapshots (latest first) with timestamps
 					- Ask for confirmation (default: Y)
@@ -86,7 +86,7 @@
 
 	- ## Cron Integration
 		- The backup script automatically installs a cron job:
-			- `0 2 * * * /home/<user>/restic-scripts/restic_backup.sh`
+			`0 2 * * * /home/<user>/restic-scripts/restic_backup.sh`
 		- Uses relative paths; works even if the folder is moved
 		- Runs unattended using the SSH RSA key for decryption
 		- Logs written to $RESTIC_REPOSITORY/logs
@@ -105,7 +105,7 @@
 		- Test backup and restore on a small directory first.
 		- Keep your SSH private key secure; it is required to run encrypted scripts.
 		- Check logs for backup success/failures:
-			- `less $RESTIC_REPOSITORY/logs/backup_YYYY-MM-DD.log`
+			`less $RESTIC_REPOSITORY/logs/backup_YYYY-MM-DD.log`
 		- Move the restic-scripts folder as needed — all paths are relative.
 		- Make sure restic and jq are installed on your system.
 
@@ -120,17 +120,17 @@
 			`~/restic-scripts/restic_backup.sh`
 	- ### Restore
 		- Run the encrypted restore script:
-			- `~/restic-scripts/restore.sh`
+			`~/restic-scripts/restore.sh`
 		- Displays snapshots (latest first)
 		- Confirm with Y or just press Enter to restore
 		- Restores to $HOME/restic_restore by default
    
 	- ### Logs
 		- Check the latest backup log:
-			- `less $RESTIC_REPOSITORY/logs/backup_$(date '+%F').log`
+			`less $RESTIC_REPOSITORY/logs/backup_$(date '+%F').log`
    
 	- ### Cron
 		- Backup is scheduled automatically at 2 AM daily:
-			- `crontab -l | grep restic_backup.sh`
+			`crontab -l | grep restic_backup.sh`
 		- Edit cron manually if needed:
-			- `crontab -e`
+			`crontab -e`
