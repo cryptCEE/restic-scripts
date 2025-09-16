@@ -13,13 +13,13 @@
 
 - ## Folder Structure
 ```
-restic-scripts/                 # Main folder (portable)
-  ├── src/                        # Editable source
-  │   └── restic_backup_src.sh    # Single editable source
-  ├── restic_backup.sh            # Encrypted launcher stub
-  ├── restic_backup.sh.enc        # Encrypted backup logic
-  ├── restore.sh                  # Encrypted launcher stub
-  ├── restore.sh.enc              # Encrypted restore logic
+	restic-scripts/                 # Main folder (portable)
+	  ├── src/                        # Editable source
+	  │   └── restic_backup_src.sh    # Single editable source
+	  ├── restic_backup.sh            # Encrypted launcher stub
+	  ├── restic_backup.sh.enc        # Encrypted backup logic
+	  ├── restore.sh                  # Encrypted launcher stub
+	  ├── restore.sh.enc              # Encrypted restore logic
 
 	- src/ contains the editable restic_backup_src.sh script.
 	- Running restic_backup_src.sh generates all production scripts in the parent folder.
@@ -39,16 +39,16 @@ restic-scripts/                 # Main folder (portable)
 			- When prompted to enter a passphrase, simply press `Enter` twice to leave it empty.
 	- #### Clone or copy the `restic-scripts` folder to your home directory:
 ```
-	cd /../restic-scripts
-	sudo chmod -R 700 src
-	sudo chmod +x src/restic_backup_src.sh
-	cd ..		# OR cd /../restic-scripts
-	git branch -M main
-	git remote add origin git@github.com:cryptCEE/restic-scripts.git
-	git remote -v
-	git add .
-	git commit -S -m "Test commit with GPG signing"
-	git push -u origin main
+		cd /../restic-scripts
+		sudo chmod -R 700 src
+		sudo chmod +x src/restic_backup_src.sh
+		cd ..		# OR cd /../restic-scripts
+		git branch -M main
+		git remote add origin git@github.com:cryptCEE/restic-scripts.git
+		git remote -v
+		git add .
+		git commit -S -m "Test commit with GPG signing"
+		git push -u origin main
 ```
 		- Make the source script executable:
 			`chmod +x ~/restic-scripts/src/restic_backup_src.sh`
