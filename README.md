@@ -38,33 +38,29 @@
 			- press `Enter` to accept the default location (`~/.ssh/id_rsa`)
 			- When prompted to enter a passphrase, simply press `Enter` twice to leave it empty.
 	- #### Clone or copy the `restic-scripts` folder to your home directory:
-		```
-		cd /../restic-scripts
-		sudo chmod -R 700 src
-		sudo chmod +x src/restic_backup_src.sh
-		cd ..		# OR cd /../restic-scripts
-		git branch -M main
-		git remote add origin git@github.com:cryptCEE/restic-scripts.git
-		git remote -v
-		git add .
-		git commit -S -m "Test commit with GPG signing"
-		git push -u origin main
-		```
-		- Make the source script executable:
-			`chmod +x ~/restic-scripts/src/restic_backup_src.sh`
+		- `cd /../restic-scripts`
+		- `sudo chmod -R 700 src`
+		- `sudo chmod +x src/restic_backup_src.sh`
+		- `cd ..		# OR cd /../restic-scripts`
+		- `git branch -M main`
+		- `git remote add origin git@github.com:cryptCEE/restic-scripts.git`
+		- `git remote -v`
+		- `git add .`
+		- `git commit -S -m "Test commit with GPG signing"`
+		- `git push -u origin main`
+	- Make the source script executable:
+		- `chmod +x ~/restic-scripts/src/restic_backup_src.sh`
 		- Edit the source script to configure:
-				BACKUP_PATHS: directories/files to back up
-				EXCLUDES: patterns to exclude from backups
-				RESTIC_REPOSITORY: location for the Restic repository
-				PLAIN_PASSWORD / SALT / Argon2 parameters
+			- BACKUP_PATHS: directories/files to back up
+			- EXCLUDES: patterns to exclude from backups
+			- RESTIC_REPOSITORY: location for the Restic repository
+			- PLAIN_PASSWORD / SALT / Argon2 parameters
 
 - ## The Backup
 	- ### Preparing the Backup Script
 	 	- Run the editable source to perform a backup and generate encrypted scripts:
-			```
-			cd ~/restic-scripts/src
-			./restic_backup_src.sh
-			```
+			- `cd ~/restic-scripts/src`
+			- `./restic_backup_src.sh`
 			- What happens:
 				- Restic repository initialized if not present
 				- Argon2 password file created (or reused)
@@ -76,9 +72,9 @@
 				- Production scripts (restic_backup.sh and restore.sh) are encrypted and ready for use
 	- ### Running Encrypted Production Scripts
 		- Backup:
-			`~/restic-scripts/restic_backup.sh`
+			- `~/restic-scripts/restic_backup.sh`
 		- Restore:
-			`~/restic-scripts/restore.sh`
+			- `~/restic-scripts/restore.sh`
 			- Restore Behavior:
 				- Displays available snapshots (latest first) with timestamps
 				- Ask for confirmation (default: Y)
@@ -86,7 +82,7 @@
 
 - ## Cron Integration
 	- The backup script automatically installs a cron job:
-		`0 2 * * * /home/<user>/restic-scripts/restic_backup.sh`
+		- `0 2 * * * /home/<user>/restic-scripts/restic_backup.sh`
 	- Uses relative paths; works even if the folder is moved
 	- Runs unattended using the SSH RSA key for decryption
 	- Logs written to $RESTIC_REPOSITORY/logs
@@ -105,7 +101,7 @@
 	- Test backup and restore on a small directory first.
 	- Keep your SSH private key secure; it is required to run encrypted scripts.
 	- Check logs for backup success/failures:
-		`less $RESTIC_REPOSITORY/logs/backup_YYYY-MM-DD.log`
+	 - `less $RESTIC_REPOSITORY/logs/backup_YYYY-MM-DD.log`
 	- Move the restic-scripts folder as needed — all paths are relative.
 	- Make sure restic and jq are installed on your system.
 
@@ -115,20 +111,20 @@
 			- `cd ~/restic-scripts/src`
 			- `./restic_backup_src.sh`
 		- Run the encrypted production backup script:
-			`~/restic-scripts/restic_backup.sh`
+			- `~/restic-scripts/restic_backup.sh`
 	- ### Restore
 		- Run the encrypted restore script:
-			`~/restic-scripts/restore.sh`
+			- `~/restic-scripts/restore.sh`
 		- Displays snapshots (latest first)
 		- Confirm with Y or just press Enter to restore
 		- Restores to $HOME/restic_restore by default
    
 	- ### Logs
 		- Check the latest backup log:
-			`less $RESTIC_REPOSITORY/logs/backup_$(date '+%F').log`
+			- `less $RESTIC_REPOSITORY/logs/backup_$(date '+%F').log`
    
 	- ### Cron
 		- Backup is scheduled automatically at 2 AM daily:
-			`crontab -l | grep restic_backup.sh`
+			- `crontab -l | grep restic_backup.sh`
 		- Edit cron manually if needed:
-			`crontab -e`
+			- `crontab -e`
