@@ -38,7 +38,7 @@
 			- press `Enter` to accept the default location (`~/.ssh/id_rsa`)
 			- When prompted to enter a passphrase, simply press `Enter` twice to leave it empty.
 	- #### Clone or copy the `restic-scripts` folder to your home directory:
-```
+		```
 		cd /../restic-scripts
 		sudo chmod -R 700 src
 		sudo chmod +x src/restic_backup_src.sh
@@ -49,7 +49,7 @@
 		git add .
 		git commit -S -m "Test commit with GPG signing"
 		git push -u origin main
-```
+		```
 		- Make the source script executable:
 			`chmod +x ~/restic-scripts/src/restic_backup_src.sh`
 		- Edit the source script to configure:
@@ -112,12 +112,12 @@
 	- ## Quick Commands Reference
 	- ### Backup
 		- Run the source script (generates encrypted scripts and runs backup):
-			- ```
-			  cd ~/restic-scripts/src
-			  ./restic_backup_src.sh
-			  ```
+			```
+			cd ~/restic-scripts/src
+			./restic_backup_src.sh
+			```
 		- Run the encrypted production backup script:
-			- `~/restic-scripts/restic_backup.sh`
+			`~/restic-scripts/restic_backup.sh`
 	- ### Restore
 		- Run the encrypted restore script:
 			- `~/restic-scripts/restore.sh`
