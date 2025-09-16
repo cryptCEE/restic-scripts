@@ -41,7 +41,7 @@
 		- `cd /../restic-scripts`
 		- `sudo chmod -R 700 src`
 		- `sudo chmod +x src/restic_backup_src.sh`
-		- `cd ..		# OR cd /../restic-scripts`
+		- `cd ..`		# **OR** `cd /../restic-scripts`
 		- `git branch -M main`
 		- `git remote add origin git@github.com:cryptCEE/restic-scripts.git`
 		- `git remote -v`
