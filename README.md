@@ -38,17 +38,17 @@ restic-scripts/                 # Main folder (portable)
 			- press `Enter` to accept the default location (`~/.ssh/id_rsa`)
 			- When prompted to enter a passphrase, simply press `Enter` twice to leave it empty.
 	- #### Clone or copy the `restic-scripts` folder to your home directory:
- ```
-cd /../restic-scripts
-sudo chmod -R 700 src
-sudo chmod +x src/restic_backup_src.sh
-cd ..		# OR cd /../restic-scripts
-git branch -M main
-git remote add origin git@github.com:cryptCEE/restic-scripts.git
-git remote -v
-git add .
-git commit -S -m "Test commit with GPG signing"
-git push -u origin main
+```
+	cd /../restic-scripts
+	sudo chmod -R 700 src
+	sudo chmod +x src/restic_backup_src.sh
+	cd ..		# OR cd /../restic-scripts
+	git branch -M main
+	git remote add origin git@github.com:cryptCEE/restic-scripts.git
+	git remote -v
+	git add .
+	git commit -S -m "Test commit with GPG signing"
+	git push -u origin main
 ```
 		- Make the source script executable:
 			`chmod +x ~/restic-scripts/src/restic_backup_src.sh`
